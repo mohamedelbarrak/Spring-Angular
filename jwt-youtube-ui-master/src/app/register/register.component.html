@@ -1,6 +1,6 @@
 <div class="container mt-5">
     <div class="card" style="padding: 20px;">
-        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
             <!-- loginForm pour le nom du form &  ngSubmit pour executer la fonction aprer submit -->
             <!-- le creation du fonction login se fait au nivaux du login.component.ts -->
             <!-- avent de créer la fonction, il faut ajouter FormsModule dans app.module.ts au imports  -->
@@ -13,6 +13,22 @@
             class="form-control mb-3"
             >
 
+            <input type="text"
+            ngModel
+            name="userFirstName"
+            id="userFirstName"
+            placeholder="Enter your first name"
+            class="form-control mb-3"
+            >
+
+            <input type="text"
+            ngModel
+            name="userLastName"
+            id="userLastName"
+            placeholder="Enter your last name"
+            class="form-control mb-3"
+            >
+
             <input type="password"
             ngModel
             name="userPassword"
@@ -22,7 +38,7 @@
             >
 
             <input type="submit"
-            value="Login"
+            value="Register"
             class="btn btn-outline-primary form-control rounded-0">
         </form>
     </div>

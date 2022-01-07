@@ -20,7 +20,9 @@
         </li>
 
       </ul>
-      <button *ngIf="! isLoggedIn()" type="button" class="btn btn-success" routerLink="/login">Login</button>
+      <button *ngIf="! isLoggedIn()" type="button" class="btn btn-success margin-right: 5px" routerLink="/login">Login</button>
+      <a> </a>
+      <button *ngIf="! isLoggedIn()" type="button" class="btn margin-left btn-light" routerLink="/register">Register</button>
       <button *ngIf="isLoggedIn()" type="button" class="btn btn-danger" (click)="logout()">Logout</button>
     </div>
   </div>

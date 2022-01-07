@@ -11,19 +11,21 @@ import { UserService } from '../_services/user.service';
 })
 export class LoginComponent implements OnInit {
   constructor(
-    private userService: UserService,
-    private userAuthService: UserAuthService,
-    private router: Router
+    private userService: UserService,//userService c'est sercive dans _services pour http://localhost:9090/...
+    private userAuthService: UserAuthService,//userAuthService c'est sercive dans _services pour enregistrer role et token dans localStorage
+    private router: Router//redirection
   ) {}
 
   ngOnInit(): void {}
 
   login(loginForm: NgForm) {
     this.userService.login(loginForm.value).subscribe(
+      // response c'est la response du spring
       (response: any) => {
         this.userAuthService.setRoles(response.user.role);
         this.userAuthService.setToken(response.jwtToken);
 
+        // redirection 
         const role = response.user.role[0].roleName;
         if (role === 'Admin') {
           this.router.navigate(['/admin']);

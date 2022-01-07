@@ -8,7 +8,7 @@ import { UserAuthService } from './user-auth.service';
 export class UserService {
   PATH_OF_API = 'http://localhost:9090';
 
-  requestHeader = new HttpHeaders({ 'No-Auth': 'True' });
+  requestHeader = new HttpHeaders({ 'No-Auth': 'True' });//marcher sans kay
   constructor(
     private httpclient: HttpClient,
     private userAuthService: UserAuthService
@@ -16,6 +16,12 @@ export class UserService {
 
   public login(loginData) {
     return this.httpclient.post(this.PATH_OF_API + '/authenticate', loginData, {
+      headers: this.requestHeader,
+    });
+  }
+
+  public register(loginData) {
+    return this.httpclient.post(this.PATH_OF_API + '/registerNewUser', loginData, {
       headers: this.requestHeader,
     });
   }

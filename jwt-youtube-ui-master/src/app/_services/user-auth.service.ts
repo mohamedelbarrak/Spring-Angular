@@ -1,3 +1,4 @@
+// user-auth to stage data in local storage
 import { Injectable } from '@angular/core';
 
 @Injectable({
